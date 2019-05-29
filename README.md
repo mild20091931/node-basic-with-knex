@@ -1,4 +1,4 @@
 ### node-basic
 -------------------------------
-start Nodejs
+start Nodejs + mySQL
 ##### yarn dev OR npm run dev
