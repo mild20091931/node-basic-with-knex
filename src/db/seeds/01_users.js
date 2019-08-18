@@ -10,18 +10,21 @@ exports.seed = function(knex) {
           firstName: 'Nigel',
           lastName: 'Mild',
           email: 'nigel@email.com',
+          createdAt: new Date(),
         },
         {
           id: 2,
           firstName: 'Test2',
           lastName: 'nakaz',
           email: 'nakaz@email.com',
+          createdAt: new Date(),
         },
         {
           id: 3,
           firstName: 'Test3',
           lastName: 'jaywon',
           email: 'jaywon@email.com',
+          createdAt: new Date(),
         },
       ]);
     });
