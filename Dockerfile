@@ -8,7 +8,8 @@ COPY yarn.lock .
 RUN yarn install
 
 COPY ./*.js ./
+COPY ./src ./src
 
-EXPOSE 8000
+EXPOSE 8081
 
 CMD [ "yarn", "start" ]
