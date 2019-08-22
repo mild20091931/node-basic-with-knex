@@ -1,11 +1,14 @@
+require('dotenv').config();
+
 module.exports = {
   development: {
     client: 'mysql2',
     connection: {
-      host: 'localhost',
-      database: 'test_ask',
-      user: 'root',
-      password: '',
+      host: process.env.DATABASE_HOST,
+      database: process.env.DATABASE_NAME,
+      user: process.env.DATABASE_USER,
+      password: process.env.DATABASE_PASSWORD,
+      port: process.env.DATABASE_PORT,
     },
     pool: {
       min: process.env.DATABASE_POOL_MIN,
@@ -19,3 +22,4 @@ module.exports = {
     },
   },
 };
+console.log('test', process.env.DATABASE_PASSWORD);

@@ -1,8 +1,18 @@
-var express = require('express');
-var app = express();
+import server from './server';
 
-const port = 8000;
+require('@babel/register')({
+  presets: ['env'],
+});
+export function idempotentBabelPolyfill() {
+  if (
+    !global._babelPolyfill &&
+    // eslint-disable-next-line no-undef
+    (typeof window === 'undefined' || !window._babelPolyfill)
+  ) {
+    return require('@babel/polyfill');
+  }
+  return null;
+}
+require('dotenv').config();
 
-app.get('/', (req, res) => res.send('Hello World!'));
-
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+export default server;
