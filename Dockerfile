@@ -9,7 +9,8 @@ RUN yarn install
 
 COPY ./*.js ./
 COPY ./src ./src
+COPY .babelrc .
 
-EXPOSE 8081
+EXPOSE 8000
 
 CMD [ "yarn", "start" ]
