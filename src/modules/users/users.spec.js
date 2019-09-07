@@ -1,4 +1,5 @@
 import userService,{ checkDataNotNull } from './service';
+import { newUserController } from './controller';
 import { testNameToKey } from 'jest-snapshot/build/utils';
 
 describe('UserService-Test', () => {
@@ -21,7 +22,17 @@ describe('UserService-Test', () => {
       lastName: 'Noita',
       email: 'nakaz@email.com',
     }]
-    const mockUser2 = [];
+    const mockUser2 = []
+    const mockUser3 =[{
+      id: 4,
+      createdAt: '2019-09-01T11:12:58.000',
+      updatedAt: null,
+      deletedAt: null,
+      firstName: 'kaotu',
+      lastName: 'tu',
+      email: 'nigel@email.com'
+    }]
+    ;
 
   describe('reverseFullName()', () => {
     test("should not return ''", () => {
@@ -51,7 +62,12 @@ describe('UserService-Test', () => {
     test('should return true when given data is not null', () => {
       expect(checkDataNotNull(mockUser1)).toBe(true);
     })
-    
-    
+  });
+
+  console.log('ENV : '+ process.env.NODE_ENV);
+  describe('newUserByController', () => {
+    test('should return Success! when given complete field on db', () =>{
+      expect(newUserController(mockUser3)).toBe('Success!');
+    });
   });
 });
