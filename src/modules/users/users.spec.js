@@ -65,7 +65,7 @@ describe('UserService-Test', () => {
   });
 
   console.log('ENV : '+ process.env.NODE_ENV);
-  describe('newUserByController', () => {
+  describe('newUserController', () => {
     test('should return Success! when given complete field on db', () =>{
       expect(newUserController(mockUser3)).toBe('Success!');
     });
