@@ -8,4 +8,9 @@ export default {
       .select()
       .where({ firstName: firstName });
   },
+  
+  createUser: async data => {
+    return await knex(tableName)
+      .insert(data);
+  },
 };
