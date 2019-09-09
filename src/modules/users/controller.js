@@ -23,4 +23,19 @@ export default {
     // return res.status(201).send('Success!');
     // console.log(data);
   },
+
+  updateAllController: async (req, res) => {
+    const data = await req.body;
+    const id = req.params.id;
+    const user = await userModel.findUserById(id);
+    const updateData = await userModel.updateDataByModel(id, data);
+    return res.send('ID : ' + id + ' update success!');
+  },
+
+  deleteUserController: async (req, res) => {
+    const id = await req.params.id;
+    const user = await userModel.findUserById(id);
+    const delUser = await userModel.deleteUser(id, user);
+    return res.send('ID :' + id + ' Deleted');
+  },
 };

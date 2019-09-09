@@ -13,4 +13,22 @@ export default {
     return await knex(tableName)
       .insert(data);
   },
+
+  findUserById: async id => {
+    return await knex(tableName)
+      .select()
+      .where({ id: id });
+  },
+
+  updateDataByModel: async (id, user)  => {
+    return await knex(tableName)
+      .update(user)
+      .where({ id: id });
+  },
+
+  deleteUser: async id => {
+    return await knex(tableName)
+    .where({ id: id})
+    .del();
+  },
 };
