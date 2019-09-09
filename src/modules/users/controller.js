@@ -5,7 +5,6 @@ export default {
   reverseFullNameController: async (req, res) => {
     const firstName = await req.params.firstName;
     const user = await userModel.findUserByFirstName(firstName);
-    console.log(user);
     const reverseFullName = await userService.reverseFullName(user);
     return res.send(reverseFullName);
   },
@@ -18,9 +17,10 @@ export default {
   },
 
   newUserController: async (req, res) => {
-    const data = await req.body;
-    const newUser = await userModel.createUser(data);
-    return res.status(201).send('Success!');
-    console.log(data);
+    console.log(req.body);
+    // const data = await req.body;
+    // const newUser = await userModel.createUser(data);
+    // return res.status(201).send('Success!');
+    // console.log(data);
   },
 };

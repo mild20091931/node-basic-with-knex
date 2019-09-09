@@ -1,6 +1,6 @@
-import userService,{ checkDataNotNull } from './service';
-import { newUserController } from './controller';
-import { testNameToKey } from 'jest-snapshot/build/utils';
+import userService, { checkDataNotNull } from './service';
+import userController from './controller';
+// import Jest from 'jest';
 
 describe('UserService-Test', () => {
   const mockUser = [
@@ -12,8 +12,10 @@ describe('UserService-Test', () => {
       firstName: 'Mild',
       lastName: 'Noita',
       email: 'nakaz@email.com',
-    }]
-    const mockUser1 = [{
+    },
+  ];
+  const mockUser1 = [
+    {
       id: 3,
       createdAt: '2019-08-18T16:48:38.000Z',
       updatedAt: null,
@@ -21,18 +23,18 @@ describe('UserService-Test', () => {
       firstName: 'Test2',
       lastName: 'Noita',
       email: 'nakaz@email.com',
-    }]
-    const mockUser2 = []
-    const mockUser3 =[{
-      id: 4,
-      createdAt: '2019-09-01T11:12:58.000',
-      updatedAt: null,
-      deletedAt: null,
-      firstName: 'kaotu',
-      lastName: 'tu',
-      email: 'nigel@email.com'
-    }]
-    ;
+    },
+  ];
+  const mockUser2 = [];
+  const mockUser3 = {
+    id: 5,
+    createdAt: '2019-09-01T11:12:58.000',
+    updatedAt: null,
+    deletedAt: null,
+    firstName: 'kaotu',
+    lastName: 'tu',
+    email: 'nigel@email.com',
+  };
 
   describe('reverseFullName()', () => {
     test("should not return ''", () => {
@@ -47,11 +49,11 @@ describe('UserService-Test', () => {
   });
 
   describe('genPassWord()', () => {
-    test("should return invalid was given mockup data not found ", () => {
+    test('should return invalid was given mockup data not found ', () => {
       expect(userService.genPassWord(mockUser2)).toBe('invalid');
     });
-    test("should return password was generate when given mockup data", () => {
-      expect(typeof userService.genPassWord(mockUser) === "string").toBe(true);
+    test('should return password was generate when given mockup data', () => {
+      expect(typeof userService.genPassWord(mockUser) === 'string').toBe(true);
     });
   });
 
@@ -61,13 +63,14 @@ describe('UserService-Test', () => {
     });
     test('should return true when given data is not null', () => {
       expect(checkDataNotNull(mockUser1)).toBe(true);
-    })
+    });
   });
 
-  console.log('ENV : '+ process.env.NODE_ENV);
   describe('newUserController', () => {
-    test('should return Success! when given complete field on db', () =>{
-      expect(newUserController(mockUser3)).toBe('Success!');
+    const test = jest.fn().mockReturnValue(mockUser3);
+    console.log(test());
+    test('should return Success! when given complete field on db', () => {
+      // expect(newUserController(mockUser3)).toBe('Success!');
     });
   });
 });

@@ -2,7 +2,7 @@ require('dotenv').config();
 
 module.exports = {
   development: {
-    client: 'mysql2',
+    client: 'mysql',
     connection: {
       host: process.env.DATABASE_HOST,
       database: process.env.DATABASE_NAME,
@@ -22,4 +22,3 @@ module.exports = {
     },
   },
 };
-console.log('test', process.env.DATABASE_PASSWORD);

@@ -9,4 +9,3 @@ services:
     environment:
       MYSQL_PASSWORD: abcdef
       MYSQL_DATABASE: test_ask
-      MYSQL_ROOT_PASSWORD: abcdef
