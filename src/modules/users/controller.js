@@ -31,4 +31,11 @@ export default {
     const updateData = await userModel.updateDataByModel(id, data);
     return res.send('ID : ' + id + ' update success!');
   },
+
+  deleteUserController: async (req, res) => {
+    const id = await req.params.id;
+    const user = await userModel.findUserById(id);
+    const delUser = await userModel.deleteUser(id, user);
+    return res.send('ID :' + id + ' Deleted');
+  },
 };
