@@ -25,4 +25,10 @@ export default {
       .update(user)
       .where({ id: id });
   },
+
+  deleteUser: async id => {
+    return await knex(tableName)
+    .where({ id: id})
+    .del();
+  },
 };
