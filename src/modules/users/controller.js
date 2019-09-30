@@ -17,11 +17,10 @@ export default {
   },
 
   newUserController: async (req, res) => {
-    console.log(req.body);
-    // const data = await req.body;
-    // const newUser = await userModel.createUser(data);
-    // return res.status(201).send('Success!');
-    // console.log(data);
+    const data = await req.body;
+    const newUser = await userModel.createUser(data);
+    return res.status(201).send('Success!');
+    console.log(data);
   },
 
   updateAllController: async (req, res) => {
